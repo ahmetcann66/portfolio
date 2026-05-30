@@ -1,17 +1,17 @@
 ---
-title: "REST API Design Principles That Stand the Test of Time"
+title: "REST API Design Principles I Use in Robotics and UAV Projects"
 publishedAt: "2024-12-12"
 updatedAt: "2024-12-12"
-author: "John Doe"
-summary: "Learn how to design APIs that developers love to use and are easy to maintain."
+author: "Ahmet Can Bozkurt"
+summary: "How I keep APIs predictable and easy to integrate when they sit between embedded devices, control software, and operator tools."
 image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=192&fit=crop"
 ---
 
-# REST API Design Principles That Stand the Test of Time
+# REST API Design Principles I Use in Robotics and UAV Projects
 
-Great APIs feel boring in the best way: predictable, consistent, and easy to reason about. When the surface area is simple, teams ship faster and clients break less often.
+When I build software around drones, robots, or internal tooling, the API has to stay boring in the best possible way: predictable, consistent, and easy to reason about. The more moving parts a system has, the more important it becomes to make the interface obvious.
 
-This is a lightweight checklist you can keep in mind while designing new endpoints or reviewing an existing API.
+This is the checklist I keep in mind when I am wiring together control software, telemetry, or device-facing tools.
 
 ## Core principles
 
@@ -19,6 +19,8 @@ This is a lightweight checklist you can keep in mind while designing new endpoin
 - Keep behavior aligned with **HTTP semantics** (read vs write).
 - Return **consistent response shapes** so clients don’t guess.
 - Prefer **sane defaults** with optional query parameters for filtering/sorting.
+- Make error messages useful enough to debug field issues quickly.
+- Keep device commands idempotent when the hardware can receive retries.
 
 ## A simple checklist
 
@@ -27,7 +29,9 @@ This is a lightweight checklist you can keep in mind while designing new endpoin
 3. Document pagination and what “next/previous” means.
 4. Be explicit about authentication and authorization requirements.
 5. Add brief examples in docs for the “happy path” and common errors.
+6. Separate telemetry endpoints from command endpoints so they do not drift into one another.
+7. Version the contract before the hardware or client side forces a breaking change.
 
 ## Wrap-up
 
-If you optimize for consistency first, your API will be easier to document, easier to test, and easier for others to adopt.
+If you optimize for consistency first, your API will be easier to document, easier to test, and easier to keep stable when real hardware is involved.

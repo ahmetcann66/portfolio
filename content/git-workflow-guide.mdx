@@ -1,17 +1,17 @@
 ---
-title: "Git Workflow Guide: From Chaos to Clarity"
+title: "Git Workflow Habits for Hardware-Heavy Projects"
 publishedAt: "2024-12-10"
 updatedAt: "2024-12-10"
-author: "John Doe"
-summary: "Master Git workflows that keep your team productive and your codebase healthy."
+author: "Ahmet Can Bozkurt"
+summary: "A practical Git workflow for robotics and embedded work where changes need to stay small, traceable, and safe."
 image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=192&fit=crop"
 ---
 
-# Git Workflow Guide: From Chaos to Clarity
+# Git Workflow Habits for Hardware-Heavy Projects
 
-Git is powerful, but teams usually struggle because they don’t agree on a few basics. A simple workflow keeps history readable, reviews focused, and releases less stressful.
+Git is especially useful when a codebase touches firmware, control software, and operator tools. In those projects, I care less about fancy branching models and more about keeping history readable and reversible.
 
-This is a lightweight guide you can adopt in a day and iterate on later.
+This is the workflow I prefer when a change can affect a real device.
 
 ## A simple team workflow
 
@@ -19,12 +19,15 @@ This is a lightweight guide you can adopt in a day and iterate on later.
 - Keep branches small and short-lived.
 - Open a pull request early and ask for review.
 - Merge back to `main` once tests pass.
+- Keep hardware-related changes isolated from UI and tooling changes when possible.
+- Put calibration values and protocol changes in their own commits.
 
 ## Commit message tips
 
 - Start with a clear verb (“add”, “fix”, “remove”, “refactor”).
 - Keep the first line short and specific.
 - Prefer multiple small commits over one giant “WIP”.
+- Mention the subsystem when it matters: `control`, `vision`, `telemetry`, or `ui`.
 
 ## PR checklist
 
@@ -32,7 +35,8 @@ This is a lightweight guide you can adopt in a day and iterate on later.
 2. Link the issue or describe the user impact.
 3. Add tests (or explain why not).
 4. Keep the diff small enough to review quickly.
+5. Call out any hardware assumptions, baud rates, pin mappings, or protocol versions.
 
 ## Wrap-up
 
-The goal isn’t “perfect Git” — it’s fewer surprises and faster collaboration. Start simple, write down the rules, and improve them as your team grows.
+The goal isn’t “perfect Git” — it’s fewer surprises when the software meets hardware. Start simple, write down the rules, and improve them as the system grows.

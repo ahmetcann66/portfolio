@@ -1,15 +1,15 @@
 ---
-title: "TypeScript Best Practices for Clean, Maintainable Code"
+title: "TypeScript Patterns I Prefer in Control Software and Dashboards"
 publishedAt: "2024-12-08"
 updatedAt: "2024-12-08"
-author: "John Doe"
-summary: "Essential TypeScript patterns and practices that will make your codebase more robust and easier to maintain."
+author: "Ahmet Can Bozkurt"
+summary: "The TypeScript habits I lean on when I want code that models real hardware, UI state, and protocol data cleanly."
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=192&fit=crop"
 ---
 
-# TypeScript Best Practices for Clean, Maintainable Code
+# TypeScript Patterns I Prefer in Control Software and Dashboards
 
-TypeScript shines when it helps you model reality — not when it forces you to fight types all day. A few small defaults can make a codebase feel <mark>calmer, safer, and easier to refactor</mark>.
+TypeScript shines when it helps me model reality instead of fighting me all day. When I am building control software or a technical dashboard, a few small defaults make the codebase feel calmer, safer, and easier to refactor.
 
 <MediaContainer
   src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&fit=crop"
@@ -22,6 +22,8 @@ TypeScript shines when it helps you model reality — not when it forces you to 
 - Prefer readable types over clever types.
 - Use unions for “one of these”, interfaces for “shape of this”.
 - Avoid `any` as a shortcut; it becomes ~~future debt~~ fast.
+- Keep protocol payload types close to the code that serializes them.
+- Model hardware states explicitly instead of using loose booleans.
 
 ## One pattern worth memorizing
 
@@ -36,6 +38,8 @@ export function parseNumber(input: string): Result<number> {
 }
 ```
 
+That same shape works well for command acknowledgements, sensor parsing, and UI actions that can fail in more than one way.
+
 ## Wrap-up
 
-The best TypeScript code reads like good documentation: clear names, predictable shapes, and errors that point you to the fix.
+The best TypeScript code reads like good documentation: clear names, predictable shapes, and errors that point me to the fix before a bug reaches hardware.

@@ -1,28 +1,29 @@
 ---
-title: "Building Scalable Design Systems with React and Tailwind"
+title: "Building Reusable Operator Interfaces for Embedded and Drone Systems"
 publishedAt: "2024-12-01"
 updatedAt: "2024-12-01"
-author: "John Doe"
-summary: "A comprehensive guide to creating maintainable design systems that scale with your team and product."
+author: "Ahmet Can Bozkurt"
+summary: "How I approach reusable UI patterns for dashboards, control panels, and internal tools that need to stay consistent under pressure."
 image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=192&fit=crop"
 ---
 
-Design systems are the backbone of consistent user interfaces. Here's how to build one that scales.
+Reusable interface patterns matter just as much in operator software as they do in consumer apps. When a dashboard is used to monitor a robot or fly a vehicle, the UI needs to be calm, readable, and consistent.
 
-## Why Design Systems Matter
+## Why this matters
 
-A well-crafted design system provides:
+A good internal UI system gives me:
 
 - **Consistency** across all products
 - **Faster development** with reusable components
 - **Better collaboration** between designers and developers
 - **Reduced technical debt** over time
+- **Safer operations** because the same controls behave the same everywhere
 
 ## Core Principles
 
 ### 1. Start with Tokens
 
-Design tokens are the atomic values of your system:
+Tokens keep operator dashboards predictable:
 
 ```typescript title="tokens.ts"
 export const tokens = {
@@ -102,12 +103,12 @@ Build complex components from primitives:
 |-------|----------|---------|
 | Tokens | Colors, spacing, typography | Foundation |
 | Primitives | Button, Input, Badge | Building blocks |
-| Patterns | Card, Modal, Dropdown | Common UI patterns |
-| Templates | PageHeader, Sidebar | Layout structures |
+| Patterns | Status cards, telemetry panels, command bars | Common control surfaces |
+| Templates | Mission views, diagnostic dashboards | Layout structures |
 
 ## Documentation is Key
 
-> "A design system without documentation is just a component library."
+> "An operator interface without documentation becomes a liability the first time something goes wrong."
 
 Every component should include:
 
@@ -136,11 +137,11 @@ Use semantic versioning:
 
 ## Conclusion
 
-Building a design system is an investment that pays dividends in:
+Building reusable interfaces for embedded and UAV systems pays dividends in:
 
 - Developer productivity
 - Design consistency
 - User experience
 - Team collaboration
 
-Start small, iterate often, and document everything.
+Start small, iterate often, and document every control that can affect a real machine.

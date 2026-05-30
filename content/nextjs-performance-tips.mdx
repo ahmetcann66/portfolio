@@ -1,15 +1,15 @@
 ---
-title: "10 Next.js Performance Tips for Production Apps"
+title: "Next.js Performance Tips I Use for Portfolios and Dashboards"
 publishedAt: "2024-12-05"
 updatedAt: "2024-12-05"
-author: "John Doe"
-summary: "Practical optimization techniques to make your Next.js applications blazing fast in production."
+author: "Ahmet Can Bozkurt"
+summary: "Practical performance habits for Next.js apps that need to stay responsive while showing projects, posts, and technical content."
 image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=192&fit=crop"
 ---
 
-Performance isn't optional—it's a feature. Here are battle-tested tips for optimizing Next.js apps.
+Performance is part of the experience. For a portfolio or a technical dashboard, the page should feel responsive before the user reads a single line.
 
-# 2. Optimize Images
+# 1. Optimize Images
 
 Always use `next/image`
 
@@ -54,3 +54,11 @@ npm install @next/bundle-analyzer
 # Run analysis
 ANALYZE=true npm run build
 ```
+
+## 7. Keep technical sections cheap to render
+
+For a blog or portfolio, I try to keep the hero, metadata, and content lists server-rendered where possible so the app stays fast on slower connections.
+
+## Wrap-up
+
+The practical goal is not just a good Lighthouse score. It is a site that opens quickly, stays readable, and does not get in the way of the content.
