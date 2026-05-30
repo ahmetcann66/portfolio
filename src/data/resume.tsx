@@ -271,7 +271,13 @@ export const DATA = {
       location: "",
       description: "",
       image: "",
-      links: [],
+      links: [
+        {
+          title: "Gizli Link",
+          href: "https://missoft.com.tr",
+          icon: "",
+        },
+      ],
     },
   ],
 } as const;
