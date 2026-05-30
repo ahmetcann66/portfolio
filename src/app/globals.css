@@ -77,6 +77,11 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Increase base font-size for better readability (affects rem-based sizes) */
+html {
+  font-size: 112.5%; /* ~18px when browser default is 16px */
+}
+
 .dark {
   --background: oklch(0.18 0 0);
   --foreground: oklch(0.985 0 0);

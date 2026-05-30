@@ -6,7 +6,6 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
-import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight, GraduationCap } from "lucide-react";
@@ -17,7 +16,7 @@ export default function Page() {
   return (
     <main className="min-h-dvh flex flex-col gap-14 relative">
       <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
+        <div className="mx-auto w-full max-w-6xl space-y-8">
           <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between">
             <div className="gap-2 flex flex-col order-2 md:order-1">
               <BlurFadeText
@@ -112,26 +111,24 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
-          <div className="flex flex-wrap gap-2">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                  {skill.icon && <skill.icon className="size-4 rounded overflow-hidden object-contain" />}
-                  <span className="text-foreground text-sm font-medium">{skill.name}</span>
-                </div>
-              </BlurFade>
-            ))}
+            <div className="flex flex-wrap gap-2">
+            {DATA.skills.map((skill, id) => {
+              const Icon = (skill as any).icon as React.ComponentType<any> | undefined;
+              return (
+                <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+                  <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
+                    {Icon && <Icon className="size-4 rounded overflow-hidden object-contain" />}
+                    <span className="text-foreground text-sm font-medium">{skill.name}</span>
+                  </div>
+                </BlurFade>
+              );
+            })}
           </div>
         </div>
       </section>
       <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
           <ProjectsSection />
-        </BlurFade>
-      </section>
-      <section id="hackathons">
-        <BlurFade delay={BLUR_FADE_DELAY * 13}>
-          <HackathonsSection />
         </BlurFade>
       </section>
       <section id="contact">

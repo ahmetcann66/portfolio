@@ -54,8 +54,26 @@ export function ProjectCard({
   links,
   className,
 }: Props) {
+  const targetUrl = (links && links.length > 0 && links[0].href) || href || "#";
+
+  const handleOpen = () => {
+    if (!targetUrl || targetUrl === "#") return;
+    window.open(targetUrl, "_blank", "noopener,noreferrer");
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleOpen();
+    }
+  };
+
   return (
     <div
+      role="link"
+      tabIndex={0}
+      onClick={handleOpen}
+      onKeyDown={handleKeyDown}
       className={cn(
         "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
         className
