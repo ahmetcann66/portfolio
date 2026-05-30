@@ -237,5 +237,14 @@ export const DATA = {
       video: "",
     },
   ],
-  hackathons: [],
+  hackathons: [
+    {
+      title: "Derleyiciyi Sakinleştirme",
+      dates: "",
+      location: "",
+      description: "",
+      image: "",
+      links: [],
+    },
+  ],
 } as const;
